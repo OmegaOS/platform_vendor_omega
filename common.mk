@@ -150,6 +150,9 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
+# Squisher Location
+SQUISHER_SCRIPT := vendor/omega/tools/squisher
+
 # Omega Versioning
 ANDROID_VERSION = 7.1.1
 PLATFORM_VERSION_CODENAME = REL
