@@ -103,6 +103,10 @@ PRODUCT_PACKAGES += \
     SnapdragonGallery \
     SnapdragonMusic
 
+# Include librsjni explicitly to workaround GMS issue
+PRODUCT_PACKAGES += \
+    librsjni
+
 # Mms depends on SoundRecorder for recorded audio messages
 PRODUCT_PACKAGES += \
     SoundRecorder
