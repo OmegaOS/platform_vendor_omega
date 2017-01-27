@@ -154,4 +154,27 @@ ifneq ($(TARGET_BUILD_VARIANT),eng)
 ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
 endif
 
+# Omega Versioning
+ANDROID_VERSION = 7.1.1
+PLATFORM_VERSION_CODENAME = REL
+
+ifndef OMEGA_BUILD_TYPE
+ifeq ($(OMEGA_RELEASE),true)
+    OMEGA_BUILD_TYPE := OFFICIAL
+    PLATFORM_VERSION_CODENAME := OFFICIAL
+else
+    OMEGA_BUILD_TYPE := UNOFFICIAL
+    PLATFORM_VERSION_CODENAME := UNOFFICIAL
+endif
+endif
+
+ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
+    OMEGA_BUILD_TYPE := $(TARGET_UNOFFICIAL_BUILD_ID)
+endif
+OMEGA_VER := $(OMEGA_BUILD_TYPE)
+
+# Set all versions
+OMEGA_VERSION := OmegaOS-$(ANDROID_VERSION)-$(shell date +%Y%m%d)-$(OMEGA_VER)
+OMEGA_MOD_VERSION := OmegaOS-$(ANDROID_VERSION)-$(shell date +%Y%m%d)-$(OMEGA_VER)
+
 $(call inherit-product-if-exists, vendor/extra/product.mk)
