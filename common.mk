@@ -176,4 +176,7 @@ OMEGA_VER := $(OMEGA_BUILD_TYPE)
 OMEGA_VERSION := OmegaOS-$(ANDROID_VERSION)-$(shell date +%Y%m%d)-$(OMEGA_VER)
 OMEGA_MOD_VERSION := OmegaOS-$(ANDROID_VERSION)-$(shell date +%Y%m%d)-$(OMEGA_VER)
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    BUILD_DISPLAY_ID=$(BUILD_ID)
+
 $(call inherit-product-if-exists, vendor/extra/product.mk)
