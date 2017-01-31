@@ -171,12 +171,14 @@ ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
     OMEGA_BUILD_TYPE := $(TARGET_UNOFFICIAL_BUILD_ID)
 endif
 OMEGA_VER := $(OMEGA_BUILD_TYPE)
+OMEGA_VERSION_NUMBER := 1.0
 
 # Set all versions
 OMEGA_VERSION := OmegaOS-$(ANDROID_VERSION)-$(shell date +%Y%m%d)-$(OMEGA_VER)
 OMEGA_MOD_VERSION := OmegaOS-$(ANDROID_VERSION)-$(shell date +%Y%m%d)-$(OMEGA_VER)
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    BUILD_DISPLAY_ID=$(BUILD_ID)
+    BUILD_DISPLAY_ID=$(BUILD_ID) \
+    ro.omega.version=$(OMEGA_VERSION_NUMBER)-$(OMEGA_VER)
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)
